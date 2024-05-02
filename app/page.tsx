@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button";
 
-
-
-
 export default function Home() {
   return (
     <div>
-      <Button>Hello Ecohesens we're gonna make this fire !!</Button>
+      <Button>Hello Ecohesens we&apos;re gonna make this fire !!</Button>
     </div>
   );
 }
