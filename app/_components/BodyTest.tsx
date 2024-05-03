@@ -1,3 +1,5 @@
+
+
 import { Card } from "@/components/ui/card";
 import { Section } from "../../src/features/layout/Section";
 
@@ -12,8 +14,8 @@ export default function Body() {
         <div className="flex w-full h-52 flex-col items-center justify-center gap-5 bg-secondary-foreground">
           <h1 className="text-5xl text-primary-foreground">Layout des produits</h1>
         </div>
-
       </Card>
     </Section>
+
   );
 }
