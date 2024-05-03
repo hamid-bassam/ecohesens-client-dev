@@ -12,3 +12,42 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model Product {
+  id          String    @id @default(uuid())
+  name        String
+  description String?
+  imageURL    String?
+  price       Float
+  isVariant   Boolean   @default(false)
+  // Relations
+  suggestions Suggestion[]
+}
+
+model Suggestion {
+  id        String   @id @default(uuid())
+  boxId     String
+  productId String
+  createdAt DateTime @default(now())
+  // Relations
+  box     Box     @relation(fields: [boxId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+}
+
+model Box {
+  id        String       @id @default(uuid())
+  userId    String
+  title     String
+  createdAt DateTime     @default(now())
+  // Relations
+  user        User        @relation(fields: [userId], references: [id])
+  suggestions Suggestion[]
+}
+
+model User {
+  id    String @id @default(uuid())
+  email String @unique
+  // Relations
+  boxes Box[]
+}
