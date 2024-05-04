@@ -24,8 +24,10 @@ export default function Home() {
       <Spacing size="sm" />
       <ThreeDCardDemo />
       <Spacing size="sm" />
-      <BackgroundGradientDemo />
       <BoxComponent boxId="2" />
+      <Spacing size="sm" />
+      <BackgroundGradientDemo />
+
     </main>
 
   );

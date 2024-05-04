@@ -9,10 +9,10 @@ export function ThreeDCardDemo() {
     <Section>
       {/* <div className="w-auto flex gap-2"> */}
       {/* <div className="flex-2"> */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {[1, 2, 3, 4, 5, 6].map((i) => (
 
-          <CardContainer className="inter-var">
+          <CardContainer key={i} className="inter-var w-full max-w-sm">
             <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  h-auto rounded-xl p-6 border  ">
               {/* 
               <div className="flex justify-between items-center">
@@ -72,7 +72,7 @@ export function ThreeDCardDemo() {
                 <div className="flex justify-between items-center gap-2 mt-4">
                   {[1, 2, 3, 4].map((i) => (
 
-                    <Button variant="outline" className=" px-0 w-10 h-10 rounded-xl bg-black dark:bg-white  dark:text-black text-white text-xs font-bold 
+                    <Button key={i} variant="outline" className=" px-0 w-10 h-10 rounded-xl bg-black dark:bg-white  dark:text-black text-white text-xs font-bold 
                     dark:group-hover/card:shadow-md dark:group-hover/card:shadow-white group-hover/card:shadow-md group-hover/card:shadow-black/20
                     dark:hover:bg-white/70 hover:bg-muted bg-muted/10" >
                       {/* dark:hover:bg-secondary hover:bg-muted/10 bg-muted */}

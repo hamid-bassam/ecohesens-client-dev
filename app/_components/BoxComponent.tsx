@@ -28,7 +28,7 @@ export const BoxComponent = (props: BoxComponentProps) => {
     <div>
       {/* Render suggestions and other components */}
       <p>Composant Box</p>
-      <p>hello</p>
+      <p>{box?.id}</p>
 
     </div>
 
