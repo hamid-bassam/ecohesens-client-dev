@@ -2,10 +2,10 @@
 
 import { Header } from "../src/features/layout/Header";
 import { Spacing } from "../src/features/layout/Spacing";
+import { BackgroundGradientDemo } from "./_components/BackgroundGradientDemo";
 import { BoxComponent } from './_components/BoxComponent';
-import { Header2 } from "./_components/Header2";
-import { Header3 } from "./_components/Header3";
-import ImageDeFond from "./_components/ImageDeFond";
+import { ThreeDCardDemo } from "./_components/ThreeDCardDemo";
+import { WavyBackgroundDemo } from "./_components/WavyBackGroundDemo";
 
 
 
@@ -16,11 +16,15 @@ export default function Home() {
 
     <main className="flex-1">
       <Header />
+      <WavyBackgroundDemo />
+      {/* <Spacing size="sm" />
+      <Header2 /> */}
+      {/* <ImageDeFond /> */}
+      {/* <Header3 /> */}
       <Spacing size="sm" />
-      <Header2 />
-      <ImageDeFond />
-      <Header3 />
+      <ThreeDCardDemo />
       <Spacing size="sm" />
+      <BackgroundGradientDemo />
       <BoxComponent boxId="2" />
     </main>
 
