@@ -62,6 +62,9 @@ export const SuggestionClient = (props: SuggestionClientProps) => {
                           product.description ?? "Ce soin quotidien est un allié pour ceux qui cherchent à revitaliser leur peau avec une approche naturelle et biologique. Formulé à partir de cellules végétales de lys, il cible les signes visibles de l'âge en rendant la peau plus dense et élastique"
                         }
                       </p>
+                      <p>
+                        {product.price ?? 0} €
+                      </p>
                     </div>
                     {/* </Suspense> */}
                     {/* <Suspense key={props.boxId + "X"} fallback={<p>loading other props...</p>}>

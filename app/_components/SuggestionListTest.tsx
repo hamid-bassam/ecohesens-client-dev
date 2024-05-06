@@ -19,15 +19,17 @@ export const SuggestionListTest = async (props: SuggestionListTestProps) => {
     }
   }) as BoxWithDetails;
 
-  return (<>
-    <SetAtomicState boxWithDetails={box} />
+  console.log("box prisma ----------", box)
+  return (
+    <>
+      <SetAtomicState boxWithDetails={box} />
 
-    {/* {[1, 2, 3, 4, 5, 6].map((i) => ( */}
-    <SuggestionClient suggestion={box.suggestions[0]} />
+      {/* {[1, 2, 3, 4, 5, 6].map((i) => ( */}
+      <SuggestionClient suggestion={box.suggestions[0]} />
 
-    {/* ) */}
-    {/* )} */}
+      {/* ) */}
+      {/* )} */}
 
-  </>
+    </>
   );
 };

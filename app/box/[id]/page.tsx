@@ -40,7 +40,6 @@ export default async function BoxComponentServer({ params }: { params: { id: str
       {/* <Suspense key={id} fallback={<p>loading...</p>}> */}
       <ClientBoxTest boxId={id} >
         <SuggestionListTest boxId={id} />
-
       </ClientBoxTest>
       {/* </Suspense> */}
 
