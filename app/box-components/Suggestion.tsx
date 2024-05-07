@@ -21,17 +21,19 @@ export const Suggestion = (props: SuggestionProps) => {
   }
   return (
 
-    <CardContainer key={"x"} className="inter-var w-full max-w-sm ">
-      <CardBody className="bg-slate-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  h-auto rounded-xl p-6 border  ">
+    <CardContainer key={props.suggestionId} className="inter-var w-full max-w-sm ">
+      <CardBody className="bg-muted/50  relative group/card  dark:hover:shadow-md dark:hover:shadow-emerald-500/[0.1] h-auto rounded-xl p-6 border  ">
+        {/* dark:bg-black dark:border-white/[0.2] */}
+        {/* border-black/[0.1]  */}
         <CardItem as="div" translateZ="100" className="flex flex-col gap-4 items-center">
           {
             suggestion.products.filter((product) => product.isVariant === false).map((product) => (
-              <div className="flex gap-4 items-center">
+              <div key={product.id} className="flex gap-4 items-center">
                 <img
                   src={product.imageURL ?? "https://ecohesens.com/cdn/shop/files/Designsanstitre_10.png?v=1705573072&width=800"}
                   height={1000}
                   width={1000}
-                  className="h-32 w-auto object-cover rounded-xl dark:group-hover/card:shadow-white dark:group-hover/card:shadow-md group-hover/card:shadow-xl"
+                  className="h-32 w-auto object-cover rounded-xl dark:group-hover/card:shadow-white dark:group-hover/card:shadow-md group-hover/card:shadow-black/30 group-hover/card:shadow-sm"
                   alt="principal product"
                 />
                 <div className="flex flex-col items-start ">

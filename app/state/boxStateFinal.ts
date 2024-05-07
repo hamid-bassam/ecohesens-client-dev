@@ -16,7 +16,15 @@ import { atom } from 'recoil';
 // };
 export type BoxState = {
   id: string;
+  user: UserState;
   suggestions: SuggestionState[];
+};
+export type UserState = {
+  id: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+
 };
 export type SuggestionState = {
   id: string;

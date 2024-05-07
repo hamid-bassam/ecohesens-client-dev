@@ -48,8 +48,8 @@ export const VariantProductsFinal = (props: VariantProductsFinalProps) => {
   };
   return (
     <div className="flex flex-col justify-center items-center ">
-      <Button onClick={() => updateBox()} key={props.productId} variant="outline" className=" px-0 w-10 h-10 rounded-xl bg-black dark:bg-white  dark:text-black text-white text-xs font-bold 
-dark:group-hover/card:shadow-md dark:group-hover/card:shadow-white group-hover/card:shadow-md group-hover/card:shadow-black/20
+      <Button variant="outline" onClick={() => updateBox()} key={props.productId} className="  border-muted px-0 w-10 h-10 rounded-xl dark:text-black text-white text-xs font-bold 
+dark:group-hover/card:shadow-sm dark:group-hover/card:shadow-white group-hover/card:shadow-sm group-hover/card:shadow-black/20
 dark:hover:bg-white/70 hover:bg-muted bg-muted/10" >
 
         <img

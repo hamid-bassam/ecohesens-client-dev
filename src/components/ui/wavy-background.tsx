@@ -8,6 +8,8 @@ export const WavyBackground = ({
   className,
   containerClassName,
   colors,
+  height,
+  minusHeight,
   waveWidth,
   backgroundFill,
   blur = 10,
@@ -19,6 +21,8 @@ export const WavyBackground = ({
   className?: string;
   containerClassName?: string;
   colors?: string[];
+  height?: number;
+  minusHeight?: number;
   waveWidth?: number;
   backgroundFill?: string;
   blur?: number;
@@ -51,12 +55,12 @@ export const WavyBackground = ({
     ctx = canvas.getContext("2d");
     w = ctx.canvas.width = window.innerWidth;
     // h = ctx.canvas.height = window.innerHeight;
-    h = ctx.canvas.height = 70;
+    h = ctx.canvas.height = height ?? window.innerHeight;
     ctx.filter = `blur(${blur}px)`;
     nt = 0;
     window.onresize = function () {
       w = ctx.canvas.width = window.innerWidth;
-      // h = ctx.canvas.height = window.innerHeight;
+      // h = ctx.canvas.height = height ?? window.innerHeight;
       ctx.filter = `blur(${blur}px)`;
     };
     render();
@@ -118,7 +122,8 @@ export const WavyBackground = ({
       )}
     >
       <canvas
-        className="fixed inset-0 z-0"
+        className={`fixed z-${minusHeight ? 0 : 10
+          } right-0 bottom-0 left-0 top-${minusHeight ?? 0}`}
         ref={canvasRef}
         id="canvas"
         style={{
