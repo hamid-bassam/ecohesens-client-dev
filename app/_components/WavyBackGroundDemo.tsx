@@ -3,7 +3,7 @@
 import { WavyBackground } from "@/components/ui/wavy-background";
 
 
-export function WavyBackgroundDemo({ children, height, minusHeight }: { children: React.ReactNode, height?: number, minusHeight?: number }) {
+export function WavyBackgroundDemo({ children, height, minusHeight }: { children?: React.ReactNode, height?: number, minusHeight?: number }) {
   return (
     <WavyBackground
       speed="fast"

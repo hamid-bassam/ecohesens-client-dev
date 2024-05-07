@@ -2,9 +2,10 @@ import { Spacing } from "@/features/layout/Spacing";
 import { Header } from "../../../src/features/layout/Header";
 import { Section } from "../../../src/features/layout/Section";
 import prisma from "../../../src/lib/prisma";
-import { PriceAndBuyButton } from "../../box-components/PriceAndBuyButton";
-import { SetAtomicStateFinal } from "../../box-components/SetAtomicStateFinal";
-import { Suggestion } from "../../box-components/Suggestion";
+
+import { PriceAndBuyButton } from "../../_components/box-components/PriceAndBuyButton";
+import { SetAtomicStateFinal } from "../../_components/box-components/SetAtomicStateFinal";
+import { Suggestion } from "../../_components/box-components/Suggestion";
 import { BoxState, ProductState, SuggestionState } from "../../state/boxStateFinal";
 
 
@@ -12,7 +13,6 @@ import { BoxState, ProductState, SuggestionState } from "../../state/boxStateFin
 export default async function BoxComponentServer({ params }: { params: { id: string } }) {
 
   const { id } = params;
-
 
 
   const box: BoxState = await prisma.box.findUnique({
@@ -35,6 +35,7 @@ export default async function BoxComponentServer({ params }: { params: { id: str
     },
   }) as BoxState;
   // Si aucun produit n'est trouvé, renvoyez une page 404
+
   if (!box) {
     return { notFound: true };
   }
@@ -96,9 +97,13 @@ export default async function BoxComponentServer({ params }: { params: { id: str
       <Spacing size="sm" />
 
       <Section>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {box.suggestions.map((suggestion) => <Suggestion key={suggestion.id} suggestionId={suggestion.id} />)}
+          {box.suggestions.map((suggestion) =>
+            <Suggestion key={suggestion.id} suggestionId={suggestion.id} />
+          )}
         </div>
+
       </Section>
       <Spacing size="sm" />
 

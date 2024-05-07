@@ -22,6 +22,7 @@ export default function RootLayout({
     <ReactQueryClientProvider>
       <html lang="en">
         <body className={inter.className}>
+
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -35,5 +36,7 @@ export default function RootLayout({
         </body>
       </html>
     </ReactQueryClientProvider>
+
+
   );
 }

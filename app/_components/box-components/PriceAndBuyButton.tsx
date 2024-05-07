@@ -1,8 +1,9 @@
 "use client";
 import { useRecoilValue } from "recoil";
-import { Button } from "../../src/components/ui/button";
-import { Section } from "../../src/features/layout/Section";
-import { boxStateFinal } from "../state/boxStateFinal";
+import { Button } from "../../../src/components/ui/button";
+import { Section } from "../../../src/features/layout/Section";
+import { boxStateFinal } from "../../state/boxStateFinal";
+
 
 export type PriceAndBuyButtonProps = {
   prop: string;

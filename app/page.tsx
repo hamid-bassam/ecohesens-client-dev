@@ -3,7 +3,6 @@
 import { Header } from "../src/features/layout/Header";
 import { Spacing } from "../src/features/layout/Spacing";
 import { BackgroundGradientDemo } from "./_components/BackgroundGradientDemo";
-import { BoxComponent } from './_components/BoxComponent';
 import { ThreeDCardDemo } from "./_components/ThreeDCardDemo";
 import { WavyBackgroundDemo } from "./_components/WavyBackGroundDemo";
 
@@ -24,7 +23,6 @@ export default function Home() {
       <Spacing size="sm" />
       <ThreeDCardDemo />
       <Spacing size="sm" />
-      <BoxComponent boxId="2" />
       <Spacing size="sm" />
       <BackgroundGradientDemo />
 

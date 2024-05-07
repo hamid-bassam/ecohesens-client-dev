@@ -1,13 +1,13 @@
 "use client";
 
-import { Button } from "../../src/components/ui/button";
 export type VariantProductsFinalProps = {
   productId: string;
   suggestionId: string;
 };
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { BoxState, boxStateFinal } from "../state/boxStateFinal";
+import { Button } from '../../../src/components/ui/button';
+import { BoxState, boxStateFinal } from '../../state/boxStateFinal';
 
 
 

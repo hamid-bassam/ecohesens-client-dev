@@ -14,7 +14,7 @@ export const Header = () => {
 
 
   return (
-    <header id="Header" className="bg-muted/50 sticky top-0 px-4 py-4 z-10 backdrop-filter backdrop-blur-sm rounded-sm">
+    <header id="Header" className="bg-muted/50 sticky border-b top-0 px-4 py-4 z-10 backdrop-filter backdrop-blur-sm rounded-sm">
 
       <Section className="flex  justify-center items-center" >
         {/* <h1 className="text-lg font-bold text-primary">bassams.fr</h1> */}
