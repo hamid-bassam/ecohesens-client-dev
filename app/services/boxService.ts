@@ -40,9 +40,9 @@ async function getBox(id: string) {
               include: {
                 product: true,
               },
-              select: {
-                isVariant: true,
-              }
+              // select: {
+              //   isVariant: true,
+              // }
             }
           }
         }

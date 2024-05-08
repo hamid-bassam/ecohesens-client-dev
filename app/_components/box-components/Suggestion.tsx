@@ -4,6 +4,8 @@ import { useRecoilValue } from "recoil";
 
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "../../../src/components/ui/3d-card";
+import { Button } from "../../../src/components/ui/button";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../../../src/components/ui/dialog";
 import { boxStateFinal } from "../../state/boxStateFinal";
 import { Loading } from "../Loading";
 import { VariantProductsFinal } from "./VariantProductsFinal";
@@ -68,6 +70,11 @@ export const Suggestion = (props: SuggestionProps) => {
       <p> Suggestion not found </p>;
     </>
   }
+
+  const mainProduct = suggestion.products.find(product => product.isVariant === false);
+
+  const mainProductDescription = mainProduct?.product.description ?? "Ce soin quotidien est un allié pour ceux qui cherchent à revitaliser leur peau avec une approche naturelle et biologique. Formulé à partir de cellules végétales de lys, il cible les signes visibles de l'âge en rendant la peau plus dense et élastique";
+
   return (
 
     <>
@@ -92,16 +99,37 @@ export const Suggestion = (props: SuggestionProps) => {
                     >
                       {product.product.title ?? "object null doumams techniquement tachtiquement "}
                     </div>
+                    <p>
+                      {product.product.price ?? 0} €
+                    </p>
                     <p
                       className="text-neutral-500 text-xs pt-2 dark:text-neutral-300"
                     >
                       {
-                        product.product.description ?? "Ce soin quotidien est un allié pour ceux qui cherchent à revitaliser leur peau avec une approche naturelle et biologique. Formulé à partir de cellules végétales de lys, il cible les signes visibles de l'âge en rendant la peau plus dense et élastique"
+                        mainProductDescription.length > 100 ? mainProductDescription.substring(0, 100) + '...' : mainProductDescription
                       }
                     </p>
-                    <p>
-                      {product.product.price ?? 0} €
-                    </p>
+                    {mainProductDescription.length > 100 && (
+                      <Dialog >
+                        <DialogTrigger asChild>
+                          <Button className="w-1/2 mt-4 self-center rounded-full">Voir plus</Button>
+                        </DialogTrigger>
+                        <DialogContent className="h-96 overflow-y-auto w-[50%]">
+                          <DialogHeader>
+                            <DialogTitle>Description du produit</DialogTitle>
+
+                          </DialogHeader>
+                          <DialogDescription>
+                            {mainProductDescription}
+                            {/* <CompleteProductCard /> */}
+                          </DialogDescription>
+                          <DialogClose asChild>
+                            <Button >Fermer</Button>
+                          </DialogClose>
+                        </DialogContent>
+                      </Dialog>
+                    )}
+
                   </div>
                 </div>
               ))
