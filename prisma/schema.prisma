@@ -5,7 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider   = "prisma-client-js"
+  provider = "prisma-client-js"
   // engineType = "binary"
 }
 
@@ -16,27 +16,41 @@ datasource db {
 }
 
 model Product {
-  id          String  @id @default(uuid())
-  name        String
+  id     String @id 
+  handle String
+
+  variantId        String
+  availableForSale Boolean @default(true)
+
+  title       String?
   description String?
-  imageURL    String?
-  price       Float
-  isVariant   Boolean @default(false)
+
+  featuredImage Json
+  price         Float
   // Relations
 
-  suggestion   Suggestion? @relation(fields: [suggestionId], references: [id])
-  suggestionId String?
-  Selection    Selection?  @relation(fields: [selectionId], references: [id])
-  selectionId  String?
+  suggestions ProductSuggestion[]
+  Selection   Selection?          @relation(fields: [selectionId], references: [id])
+  selectionId String?
 }
 
 model Suggestion {
-  id        String    @id @default(uuid())
+  id        String              @id @default(uuid())
   boxId     String
-  createdAt DateTime  @default(now())
+  createdAt DateTime            @default(now())
   // Relations
-  box       Box       @relation(fields: [boxId], references: [id])
-  products  Product[]
+  box       Box                 @relation(fields: [boxId], references: [id])
+  products  ProductSuggestion[]
+}
+
+model ProductSuggestion {
+  product      Product    @relation(fields: [productId], references: [id])
+  productId    String
+  suggestion   Suggestion @relation(fields: [suggestionId], references: [id])
+  suggestionId String
+  isVariant    Boolean    @default(true)
+  
+  @@id([productId, suggestionId])
 }
 
 model Box {
