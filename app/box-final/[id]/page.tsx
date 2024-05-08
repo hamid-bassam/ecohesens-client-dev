@@ -1,12 +1,11 @@
 import { Spacing } from "@/features/layout/Spacing";
 import { Header } from "../../../src/features/layout/Header";
 import { Section } from "../../../src/features/layout/Section";
-import prisma from "../../../src/lib/prisma";
 
 import { PriceAndBuyButton } from "../../_components/box-components/PriceAndBuyButton";
 import { SetAtomicStateFinal } from "../../_components/box-components/SetAtomicStateFinal";
 import { Suggestion } from "../../_components/box-components/Suggestion";
-import { BoxState, ProductState, SuggestionState } from "../../state/boxStateFinal";
+import { BoxState, getBox } from "../../services/boxService";
 
 
 
@@ -15,59 +14,47 @@ export default async function BoxComponentServer({ params }: { params: { id: str
   const { id } = params;
 
 
-  const box: BoxState = await prisma.box.findUnique({
-    where: { id: id as string },
-    include: {
-      user: {
-        select: {
-          id: true,
-          firstname: true,
-          lastname: true,
-          email: true,
-        },
 
-      },
-      suggestions: {
-        include: {
-          products: true,
-        },
-      },
-    },
-  }) as BoxState;
+
+
+
   // Si aucun produit n'est trouvé, renvoyez une page 404
 
+
+
+  const box: BoxState = await getBox(id);
   if (!box) {
     return { notFound: true };
   }
 
 
+  // const state: BoxState = {
+  //   id: box?.id,
+  //   user: {
+  //     id: box.user.id,
+  //     firstname: box.user.firstname,
+  //     lastname: box.user.lastname,
+  //     email: box.user.email,
+  //   },
+
+  //   suggestions: box?.suggestions.map((suggestion: SuggestionState) => {
+  //     return {
+  //       id: suggestion.id,
+  //       products: suggestion.products.map((product: ProductState) => {
+  //         return {
+  //           id: product.id,
+  //           isVariant: product.isVariant,
+  //           name: product.name,
+  //           description: product.description,
+  //           price: product.price,
+  //           imageURL: product.imageURL,
+  //         }
+  //       })
+  //     }
+  //   })
+  // };
 
 
-  const state: BoxState = {
-    id: box?.id,
-    user: {
-      id: box.user.id,
-      firstname: box.user.firstname,
-      lastname: box.user.lastname,
-      email: box.user.email,
-    },
-
-    suggestions: box?.suggestions.map((suggestion: SuggestionState) => {
-      return {
-        id: suggestion.id,
-        products: suggestion.products.map((product: ProductState) => {
-          return {
-            id: product.id,
-            isVariant: product.isVariant,
-            name: product.name,
-            description: product.description,
-            price: product.price,
-            imageURL: product.imageURL,
-          }
-        })
-      }
-    })
-  };
   // revalidatePath('/');
 
   // TODO console.log(JSON.stringify(state, null, 2));
@@ -78,7 +65,7 @@ export default async function BoxComponentServer({ params }: { params: { id: str
         <></>
       </WavyBackgroundDemo> */}
       <Header />
-      <SetAtomicStateFinal boxState={state} />
+      <SetAtomicStateFinal boxState={box} />
       {/* <WavyBackgroundDemo minusHeight={18} > */}
       <Spacing size="sm" />
       <Section>
@@ -102,12 +89,13 @@ export default async function BoxComponentServer({ params }: { params: { id: str
           {box.suggestions.map((suggestion) =>
             <Suggestion key={suggestion.id} suggestionId={suggestion.id} />
           )}
+
         </div>
 
       </Section>
       <Spacing size="sm" />
 
-      <PriceAndBuyButton prop={"hello"} />
+      <PriceAndBuyButton />
       {/* </WavyBackgroundDemo> */}
     </main>
   );

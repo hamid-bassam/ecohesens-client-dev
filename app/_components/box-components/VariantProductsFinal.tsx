@@ -1,13 +1,14 @@
 "use client";
 
 export type VariantProductsFinalProps = {
-  productId: string;
+  productVariantId: string;
   suggestionId: string;
 };
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { Button } from '../../../src/components/ui/button';
-import { BoxState, boxStateFinal } from '../../state/boxStateFinal';
+import { BoxState } from '../../services/boxService';
+import { boxStateFinal } from '../../state/boxStateFinal';
 
 
 
@@ -16,6 +17,14 @@ export const VariantProductsFinal = (props: VariantProductsFinalProps) => {
 
   const setBox = useSetRecoilState(boxStateFinal);
   const box = useRecoilValue(boxStateFinal);
+
+  const getProductVatiant = () => {
+    return box?.suggestions.find((suggestion) => suggestion.id === props.suggestionId)?.products.find((product) => product.product.variantId === props.productVariantId)
+  };
+  const getImageUrl = () => {
+    const product = getProductVatiant();
+    return (product?.product.featuredImage as { url: string }).url ?? "https://ecohesens.com/cdn/shop/files/Designsanstitre_9.png?v=1705573072&width=800";
+  }
   const updateBox = () => {
     // console.log("updateBox");
     setBox((prevBox: BoxState | null) => {
@@ -30,7 +39,7 @@ export const VariantProductsFinal = (props: VariantProductsFinalProps) => {
               return {
                 ...suggestion,
                 products: suggestion.products.map((product) => {
-                  if (product.id === props.productId) {
+                  if (product.product.variantId === props.productVariantId) {
                     return { ...product, isVariant: false };
                   }
                   return { ...product, isVariant: true };
@@ -48,30 +57,12 @@ export const VariantProductsFinal = (props: VariantProductsFinalProps) => {
   };
   return (
     <div className="flex flex-col justify-center items-center ">
-      <Button variant="outline" onClick={() => updateBox()} key={props.productId} className="  border-muted px-0 w-10 h-10 rounded-xl dark:text-black text-white text-xs font-bold 
+      <Button variant="outline" onClick={() => updateBox()} key={props.productVariantId} className="  border-muted px-0 w-10 h-10 rounded-xl dark:text-black text-white text-xs font-bold 
 dark:group-hover/card:shadow-sm dark:group-hover/card:shadow-white group-hover/card:shadow-sm group-hover/card:shadow-black/20
 dark:hover:bg-white/70 hover:bg-muted bg-muted/10" >
-
+        {/* TODO nextImage */}
         <img
-          src={
-            // box?.suggestions.forEach((suggestion) => {
-            //   if (suggestion.id === props.suggestionId) {
-            //     return suggestion.products.forEach((product) => {
-            //       if (product.id === props.productId) {
-            //         console.log("imgURL $$$$$$", product.imageURL);
-            //         return product.imageURL;
-            //       }
-            //     });
-            //   }
-            // }) ??
-
-
-            //parcourir suggestions de box filtrer par id puis parcourtir products filtrer par id
-            // output  l'image produit product.imageURL
-
-            box?.suggestions.filter((suggestion) => suggestion.id === props.suggestionId)[0].products.filter((product) => product.id === props.productId)[0].imageURL ?? "https://ecohesens.com/cdn/shop/files/Designsanstitre_9.png?v=1705573072&width=800"
-
-          }
+          src={getImageUrl()}
           height={150}
           width={150}
           className="h-10 w-auto  object-cover rounded-xl "
@@ -79,19 +70,7 @@ dark:hover:bg-white/70 hover:bg-muted bg-muted/10" >
         </img>
 
       </Button>
-      <p className="text-primary">
-        {
-          box?.suggestions.map((suggestion) => {
-            if (suggestion.id === props.suggestionId) {
-              return suggestion.products.map((product) => {
-                if (product.id === props.productId) {
-                  return product.name + " " + product.price + "€";
-                }
-              });
-            }
-          })
-        }
-      </p>
-    </div>
+
+    </div >
   );
 }

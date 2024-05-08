@@ -7,7 +7,7 @@ import { BuyButton } from "./BuyButton";
 
 
 export type PriceAndBuyButtonProps = {
-  prop: string;
+
 };
 
 export const PriceAndBuyButton = (props: PriceAndBuyButtonProps) => {
@@ -18,20 +18,11 @@ export const PriceAndBuyButton = (props: PriceAndBuyButtonProps) => {
 
     return box.suggestions.reduce((totalPrice, suggestion) => {
       const primaryProduct = suggestion.products.find(p => !p.isVariant);
-      return totalPrice + (primaryProduct ? Number(primaryProduct.price) : 0);
+      return totalPrice + (primaryProduct ? primaryProduct.product.price : 0);
     }, 0);
   };
 
-  const getMainProducts = () => {
-    if (!box?.suggestions) return []; // Retourne un tableau vide si aucune suggestion n'est disponible
 
-    return box.suggestions.map(suggestion => {
-      return suggestion.products.find(p => !p.isVariant);
-    });
-  }
-
-
-  console.log("Boxx Price ", box);
 
   return (
     <Section>
@@ -41,7 +32,7 @@ export const PriceAndBuyButton = (props: PriceAndBuyButtonProps) => {
             {/* {box?.suggestions.map((s, price: number = 0) => price + Number(s.products.filter(p => !p.isVariant)[0].price))} € */}
             Total Price: {getTotalPrice().toFixed(2)} €
           </Button>
-          <BuyButton products={getMainProducts()} />
+          <BuyButton />
         </div>
       </div>
     </Section>
