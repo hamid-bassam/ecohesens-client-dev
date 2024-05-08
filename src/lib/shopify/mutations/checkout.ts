@@ -1,3 +1,5 @@
+import checkoutFragment from "../fragments/checkout";
+
 // hamid
 export const createCheckoutMutation = /* GraphQL */ `
   mutation createCheckout($lineItems: [CheckoutLineItemInput!]!) {

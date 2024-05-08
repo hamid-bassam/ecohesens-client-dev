@@ -1,9 +1,11 @@
 import { ThemeProvider } from "@/features/theme/ThemeProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import { ReactQueryClientProvider } from "./clientProviders/ReactQueryClientProvider";
 import RecoilContextProvider from "./clientProviders/RecoilContextProvider";
 import "./globals.css";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +33,7 @@ export default function RootLayout({
           >
             <RecoilContextProvider>
               {children}
+              <Toaster position="bottom-right" />
             </RecoilContextProvider>
           </ThemeProvider>
         </body>

@@ -30,3 +30,5 @@ const checkoutFragment = /* GraphQL */ `
     }
   }
 `;
+
+export default checkoutFragment;
