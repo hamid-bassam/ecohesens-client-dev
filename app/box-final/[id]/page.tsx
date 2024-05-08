@@ -70,7 +70,7 @@ export default async function BoxComponentServer({ params }: { params: { id: str
   };
   // revalidatePath('/');
 
-  console.log(JSON.stringify(state, null, 2));
+  // TODO console.log(JSON.stringify(state, null, 2));
 
   return (
     <main >

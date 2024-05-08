@@ -467,7 +467,8 @@ export async function createCheckout(
     },
     cache: 'no-store'
   });
-  return res.body.data.checkoutCreate.webUrl;
+  console.log("res", JSON.stringify(res));
+  return res.body.data.checkoutCreate.checkout.webUrl;
 }
 
 // hamid

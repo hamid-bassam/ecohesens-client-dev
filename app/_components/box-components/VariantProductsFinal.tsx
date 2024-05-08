@@ -17,7 +17,7 @@ export const VariantProductsFinal = (props: VariantProductsFinalProps) => {
   const setBox = useSetRecoilState(boxStateFinal);
   const box = useRecoilValue(boxStateFinal);
   const updateBox = () => {
-    console.log("updateBox");
+    // console.log("updateBox");
     setBox((prevBox: BoxState | null) => {
       if (prevBox !== null) {
 

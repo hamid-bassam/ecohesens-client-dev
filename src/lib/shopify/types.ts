@@ -267,39 +267,42 @@ export type ShopifyProductsOperation = {
 // hamid
 
 export type ShopifyCheckout = {
-  id: string;
-  webUrl: string;
-  subtotalPriceV2: {
-    amount: string;
-    currencyCode: string;
-  };
-  totalTaxV2: {
-    amount: string;
-    currencyCode: string;
-  };
-  totalPriceV2: {
-    amount: string;
-    currencyCode: string;
-  };
-  lineItems: {
-    edges: Array<{
-      node: {
-        id: string;
-        title: string;
-        quantity: number;
-        variant: {
+  checkout: {
+
+    id: string;
+    webUrl: string;
+    subtotalPriceV2: {
+      amount: string;
+      currencyCode: string;
+    };
+    totalTaxV2: {
+      amount: string;
+      currencyCode: string;
+    };
+    totalPriceV2: {
+      amount: string;
+      currencyCode: string;
+    };
+    lineItems: {
+      edges: Array<{
+        node: {
           id: string;
           title: string;
-          priceV2: {
-            amount: string;
-            currencyCode: string;
-          };
-          image: {
-            originalSrc: string;
+          quantity: number;
+          variant: {
+            id: string;
+            title: string;
+            priceV2: {
+              amount: string;
+              currencyCode: string;
+            };
+            image: {
+              originalSrc: string;
+            };
           };
         };
-      };
-    }>;
+      }>;
+    }
   };
 };
 

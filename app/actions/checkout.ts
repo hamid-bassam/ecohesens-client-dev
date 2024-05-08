@@ -15,10 +15,12 @@ export async function checkout(selectedVariantIds: string[] | undefined) {
   );
   try {
     const checkout = await createCheckout(list);
+    console.log("checkout", checkout);
     return checkout;
   }
   catch (e) {
-    return 'Error creating checkout';
+    console.log("error", e);
+    return (e as Error).message as string;
   }
 
 }
