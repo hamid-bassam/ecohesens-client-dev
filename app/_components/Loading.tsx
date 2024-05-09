@@ -7,11 +7,12 @@ export function Loading() {
       <Button
         borderRadius="50%"
         // className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
-        className="relative   bg-black/95 rounded-full overflow-hidden"
+        className="relative   bg-black/80 rounded-full overflow-hidden"
         as="div"
+        containerClassName=" p-[8px]"
       >
         <Image
-          className="bg-white transform -translate-x-1"
+          className="bg-black/80 transform -translate-x-1"
           alt="Chargement"
           src="/gif.gif"
           layout="fill"

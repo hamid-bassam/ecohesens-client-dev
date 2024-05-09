@@ -72,7 +72,7 @@ export function ThreeDCardDemo() {
                 <div className="flex justify-between items-center gap-2 mt-4">
                   {[1, 2, 3, 4].map((i) => (
 
-                    <Button key={i} variant="outline" className=" px-0 w-10 h-10 rounded-xl bg-black dark:bg-white  dark:text-black text-white text-xs font-bold 
+                    <Button key={i} variant="outline" className=" px-0 w-10 h-10 rounded-xl  dark:bg-white  dark:text-black text-white text-xs font-bold 
                     dark:group-hover/card:shadow-md dark:group-hover/card:shadow-white group-hover/card:shadow-md group-hover/card:shadow-black/20
                     dark:hover:bg-white/70 hover:bg-muted bg-muted/10" >
                       {/* dark:hover:bg-secondary hover:bg-muted/10 bg-muted */}

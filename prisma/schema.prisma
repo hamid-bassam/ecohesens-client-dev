@@ -16,7 +16,7 @@ datasource db {
 }
 
 model Product {
-  id     String @id 
+  id     String @id
   handle String
 
   variantId        String
@@ -24,6 +24,7 @@ model Product {
 
   title       String?
   description String?
+  descriptionHtml String?
 
   featuredImage Json
   price         Float
@@ -49,20 +50,22 @@ model ProductSuggestion {
   suggestion   Suggestion @relation(fields: [suggestionId], references: [id])
   suggestionId String
   isVariant    Boolean    @default(true)
-  
+
   @@id([productId, suggestionId])
 }
 
 model Box {
-  id          String       @id @default(uuid())
-  userId      String
-  title       String
-  status      BoxStatus    @default(PENDING)
-  createdAt   DateTime     @default(now())
+  id           String       @id @default(uuid())
+  userId       String
+  formId       String?
+  submissionId String?
+  title        String
+  status       BoxStatus    @default(PENDING)
+  createdAt    DateTime     @default(now())
   // Relations
-  user        User         @relation(fields: [userId], references: [id])
-  suggestions Suggestion[]
-  selection   Selection[]
+  user         User         @relation(fields: [userId], references: [id])
+  suggestions  Suggestion[]
+  selection    Selection[]
 }
 
 model User {
