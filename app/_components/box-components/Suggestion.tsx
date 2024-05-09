@@ -130,13 +130,13 @@ export const Suggestion = (props: SuggestionProps) => {
                         mainProductDescription.length > 100 ? mainProductDescription.substring(0, 100) + '...' : mainProductDescription
                       }
                     </p>
-                    <div className="fixed h-[10%] bottom-0 pb-0 self-end">
+                    <div className="fixed h-[10% bottom-0 pb-0 self-end">
 
                       {mainProductDescription.length > 100 && (
 
                         <Dialog>
                           <DialogTrigger asChild>
-                            <Button className=" w-full rounded-full">Voir plus</Button>
+                            <Button className=" w-20 rounded-full">Voir plus</Button>
                           </DialogTrigger>
                           <DialogContent className="sm:max-w-4xl  w-full h-full overflow-y-auto">
                             <DialogHeader>
@@ -191,7 +191,8 @@ export const Suggestion = (props: SuggestionProps) => {
                 </div>
               ))
             }
-            <div className="flex justify-between items-center gap-2 mt-4">
+            {/* <div className="flex justify-between items-center gap-2 mt-4"> */}
+            <div className="flex flex-wrap w-52 self-start items-center gap-2" >
               {
                 suggestion.products.map((product) => (
                   product.isVariant && <VariantProductsFinal key={product.product.id} suggestionId={suggestion.id} productVariantId={product.product.variantId} />
