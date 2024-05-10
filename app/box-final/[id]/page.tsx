@@ -7,26 +7,19 @@ import { SetAtomicStateFinal } from "../../_components/box-components/SetAtomicS
 import { Suggestion } from "../../_components/box-components/Suggestion";
 import { BoxState, getBox } from "../../services/boxService";
 
-
-
-export default async function BoxComponentServer({ params }: { params: { id: string } }) {
-
+export default async function BoxComponentServer({
+  params,
+}: {
+  params: { id: string };
+}) {
   const { id } = params;
 
-
-
-
-
-
   // Si aucun produit n'est trouvé, renvoyez une page 404
-
-
 
   const box: BoxState = await getBox(id);
   if (!box) {
     return { notFound: true };
   }
-
 
   // const state: BoxState = {
   //   id: box?.id,
@@ -54,13 +47,12 @@ export default async function BoxComponentServer({ params }: { params: { id: str
   //   })
   // };
 
-
   // revalidatePath('/');
 
   // TODO console.log(JSON.stringify(state, null, 2));
 
   return (
-    <main >
+    <main>
       {/* <WavyBackgroundDemo height={70}>
         <></>
       </WavyBackgroundDemo> */}
@@ -68,30 +60,31 @@ export default async function BoxComponentServer({ params }: { params: { id: str
       <SetAtomicStateFinal boxState={box} />
       {/* <WavyBackgroundDemo minusHeight={18} > */}
       <Spacing size="sm" />
-      <Section>
-
+      <Section className="p-4">
         <div className="rounded-lg  text-muted-foreground ">
           <h1 className="text-3xl ">
-            Bonjour <span className="text-primary font-bold">{box.user.firstname + " " + box.user.lastname}</span>,
+            Bonjour{" "}
+            <span className="text-primary font-bold">
+              {box.user.firstname + " " + box.user.lastname}
+            </span>
+            ,
           </h1>
           <p className="text-xl mt-2 ">
-            Voici votre proposition de <strong>Box</strong> personnalisée. Elle se compose de plusieurs suggestions.
-            Cliquez sur un produit variant pour le sélectionner.
+            Voici votre proposition de <strong>Box</strong> personnalisée. Elle
+            se compose de plusieurs suggestions. Cliquez sur un produit variant
+            pour le sélectionner.
           </p>
         </div>
       </Section>
 
       <Spacing size="sm" />
 
-      <Section>
-
+      <Section className="p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          {box.suggestions.map((suggestion) =>
+          {box.suggestions.map((suggestion) => (
             <Suggestion key={suggestion.id} suggestionId={suggestion.id} />
-          )}
-
+          ))}
         </div>
-
       </Section>
       <Spacing size="sm" />
 
@@ -99,5 +92,4 @@ export default async function BoxComponentServer({ params }: { params: { id: str
       {/* </WavyBackgroundDemo> */}
     </main>
   );
-
-};
+}
