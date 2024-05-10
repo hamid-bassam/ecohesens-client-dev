@@ -153,7 +153,7 @@ export const Suggestion = (props: SuggestionProps) => {
                           <DialogContent className="sm:max-w-4xl  w-full h-full overflow-y-auto">
                             <DialogHeader>
                               <DialogTitle className="text-primary">
-                                Descritpion du produit
+                                Description du produit
                               </DialogTitle>
                               {/* <DialogDescription>Composition du coffret</DialogDescription> */}
                             </DialogHeader>
