@@ -21,7 +21,8 @@ export const PriceAndBuyButton = (props: PriceAndBuyButtonProps) => {
 
   return (
     <Section>
-      <div className="container max-w-4xl bg-[#f1e1d5] p-8 pb-16 pt-12 mb-16">
+      <div className="container max-w-4xl bg-muted  p-8 pb-16 pt-12 mb-16">
+        {/* bg-[#f1e1d5] */}
         <h3 className="text-3xl font-thin text-center text-primary">
           Votre commande
         </h3>
