@@ -1,10 +1,9 @@
 "use client";
+import { Separator } from "@/components/ui/separator";
 import { useRecoilValue } from "recoil";
 import { Button } from "../../../src/components/ui/button";
 import { Section } from "../../../src/features/layout/Section";
 import { boxStateFinal } from "../../state/boxStateFinal";
-import { BuyButton } from "./BuyButton";
-import { Separator } from "@/components/ui/separator";
 
 export type PriceAndBuyButtonProps = {};
 
@@ -40,15 +39,6 @@ export const PriceAndBuyButton = (props: PriceAndBuyButtonProps) => {
             <p className="font-bold">{getTotalPrice().toFixed(2)} €</p>
           </div>
         </div>
-        {/* <div className="flex justify-center w-full items-center ">
-          <div className="flex  items-center gap-3">
-            <Button variant="outline"> */}
-        {/* {box?.suggestions.map((s, price: number = 0) => price + Number(s.products.filter(p => !p.isVariant)[0].price))} € */}
-        {/* Total Price: {getTotalPrice().toFixed(2)} €
-            </Button>
-            <BuyButton />
-          </div>
-        </div> */}
         <Separator className="my-4" />
         <div className="flex justify-center w-full items-center ">
           <div className="flex  items-center gap-3">

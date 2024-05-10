@@ -29,11 +29,10 @@ export const VariantProductsFinal = (props: VariantProductsFinalProps) => {
     );
   };
   const updateBox = () => {
-    // console.log("updateBox");
+
     setBox((prevBox: BoxState | null) => {
       if (prevBox !== null) {
         console.log("prevBox", prevBox);
-        // console.log(props.suggestionId, props.productId);
         return {
           ...prevBox,
           suggestions: prevBox.suggestions.map((suggestion) => {
@@ -61,9 +60,11 @@ export const VariantProductsFinal = (props: VariantProductsFinalProps) => {
         variant="outline"
         onClick={() => updateBox()}
         key={props.productVariantId}
-        className="  border-muted px-0 w-16 h-16 rounded-xl dark:text-black text-white text-xs font-bold 
-dark:group-hover/card:shadow-sm dark:group-hover/card:shadow-white group-hover/card:shadow-sm group-hover/card:shadow-black/20
-dark:hover:bg-white/70 hover:bg-muted bg-muted/10"
+        className="  
+        border-muted px-0 w-16 h-16 rounded-xl dark:text-black text-white text-xs font-bold 
+        dark:group-hover/card:shadow-sm dark:group-hover/card:shadow-white group-hover/card:shadow-sm
+        group-hover/card:shadow-black/20
+        dark:hover:bg-white/70 hover:bg-muted bg-muted/10"
       >
         {/* TODO nextImage */}
         <img

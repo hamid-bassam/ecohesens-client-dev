@@ -23,6 +23,9 @@ export default function RootLayout({
   return (
     <ReactQueryClientProvider>
       <html lang="en">
+        <head>
+          <link rel="favicon" href="/favicon.ico" />
+        </head>
         <body className={inter.className}>
 
           <ThemeProvider
@@ -37,6 +40,7 @@ export default function RootLayout({
             </RecoilContextProvider>
           </ThemeProvider>
         </body>
+
       </html>
     </ReactQueryClientProvider>
 

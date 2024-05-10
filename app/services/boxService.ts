@@ -2,19 +2,16 @@ import { Prisma } from "@prisma/client";
 import prisma from "../../src/lib/prisma";
 
 //template
-async function fetchBox(id: string) {
-  const response = await fetch(`/api/box/${id}`);
-  // if (!response.ok) {
-  //   throw new Error('Failed to fetch box');
-  // }
-  // return JSON.parse(JSON.stringify(response.json())) as Promise<Box>;
-  if (!response.ok) {
-    throw new Error('Failed to fetch id');
-  }
-  if (response.ok) {
-    return response.json();
-  }
-}
+// async function fetchBox(id: string) {
+//   const response = await fetch(`/api/box/${id}`);
+
+//   if (!response.ok) {
+//     throw new Error('Failed to fetch id');
+//   }
+//   if (response.ok) {
+//     return response.json();
+//   }
+// }
 
 
 async function getBox(id: string) {
@@ -54,5 +51,5 @@ async function getBox(id: string) {
 // TODO hamid prisma type 
 export type BoxState = Prisma.PromiseReturnType<typeof getBox>
 
-export { fetchBox, getBox };
+export { getBox };
 

@@ -1,7 +1,8 @@
 "use client";
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
-import { BoxState, boxStateFinal } from "../../state/boxStateFinal";
+import { BoxState } from "../../services/boxService";
+import { boxStateFinal } from "../../state/boxStateFinal";
 
 
 
