@@ -9,6 +9,7 @@ import { boxStateFinal } from '../../state/boxStateFinal';
 
 export type BuyButtonProps = {
   className?: string;
+  children: React.ReactNode;
 };
 
 export const BuyButton = (props: BuyButtonProps) => {
@@ -37,7 +38,7 @@ export const BuyButton = (props: BuyButtonProps) => {
 
   return (
     <Button variant="default" className={cn('rounded-full h-14 px-14', props.className)} onClick={checkoutUrlRedirection}  >
-      Finaliser la commande
+      {props.children}
     </Button>
   )
 };
