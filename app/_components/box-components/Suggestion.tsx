@@ -114,7 +114,7 @@ export const Suggestion = (props: SuggestionProps) => {
     <>
       <CardContainer
         key={props.suggestionId}
-        className="inter-var w-full h-full max-w-sm"
+        className="inter-var w-full max-w-sm"
       >
         <CardBody className="bg-muted/50  relative group/card  dark:hover:shadow-md dark:hover:shadow-emerald-500/[0.1] h-full rounded-xl p-6 border  ">
           {/* dark:bg-black dark:border-white/[0.2] */}
@@ -225,7 +225,7 @@ export const Suggestion = (props: SuggestionProps) => {
                 {suggestion.products?.filter((e) => e.isVariant).length})
               </p>
             )}
-            <div className="flex flex-wrap w-52 self-start items-center gap-2">
+            <div className="flex flex-wrap min-h-10 w-52 self-start items-center gap-2">
               {suggestion.products.map(
                 (product) =>
                   product.isVariant && (
