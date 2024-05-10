@@ -2,7 +2,6 @@
 import { Separator } from "@/components/ui/separator";
 import { useRecoilValue } from "recoil";
 import { Button } from "../../../src/components/ui/button";
-import { Section } from "../../../src/features/layout/Section";
 import { boxStateFinal } from "../../state/boxStateFinal";
 
 export type PriceAndBuyButtonProps = {};
@@ -20,35 +19,35 @@ export const PriceAndBuyButton = (props: PriceAndBuyButtonProps) => {
   };
 
   return (
-    <Section>
-      <div className="container  bg-muted  p-8 pb-16 pt-12 mb-16">
-        {/* bg-[#f1e1d5] */}
-        <h3 className="text-3xl font-thin text-center text-primary">
-          Votre commande
-        </h3>
-        <Separator className="my-4" />
-        <br />
-        <div className="grid grid-cols-2 gap-4 ">
-          <div>Sous Total</div>
 
-          <div className="flex justify-end">{getTotalPrice().toFixed(2)} €</div>
-          <div>Livraison</div>
+    <div className="container  bg-muted  p-8 pb-16 pt-12 mb-16">
+      {/* bg-[#f1e1d5] */}
+      <h3 className="text-3xl font-thin text-center text-primary">
+        Votre commande
+      </h3>
+      <Separator className="my-4" />
+      <br />
+      <div className="grid grid-cols-2 gap-4 ">
+        <div>Sous Total</div>
 
-          <div className="flex justify-end">-- €</div>
-          <div>Total</div>
-          <div className="flex justify-end">
-            <p className="font-bold">{getTotalPrice().toFixed(2)} €</p>
-          </div>
-        </div>
-        <Separator className="my-4" />
-        <div className="flex justify-center w-full items-center ">
-          <div className="flex  items-center gap-3">
-            <Button className="rounded-full h-14 px-14">
-              Finaliser la commande
-            </Button>
-          </div>
+        <div className="flex justify-end">{getTotalPrice().toFixed(2)} €</div>
+        <div>Livraison</div>
+
+        <div className="flex justify-end">-- €</div>
+        <div>Total</div>
+        <div className="flex justify-end">
+          <p className="font-bold">{getTotalPrice().toFixed(2)} €</p>
         </div>
       </div>
-    </Section>
+      <Separator className="my-4" />
+      <div className="flex justify-center w-full items-center ">
+        <div className="flex  items-center gap-3">
+          <Button className="rounded-full h-14 px-14">
+            Finaliser la commande
+          </Button>
+        </div>
+      </div>
+    </div>
+
   );
 };

@@ -108,7 +108,7 @@ export const Suggestion = (props: SuggestionProps) => {
     <>
 
       <CardContainer key={props.suggestionId} className="inter-var w-full h-full  max-w-sm">
-        <CardBody className="bg-muted/50  relative group/card  dark:hover:shadow-md dark:hover:shadow-emerald-500/[0.1] h-full rounded-xl p-6 border  ">
+        <CardBody className="bg-muted/10  relative group/card  dark:hover:shadow-md dark:hover:shadow-emerald-500/[0.1] h-full rounded-xl p-6 border  ">
           <CardItem
             as="div"
             translateZ="100"

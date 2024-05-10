@@ -87,9 +87,9 @@ export default async function BoxComponentServer({
         </div>
       </Section>
       <Spacing size="sm" />
-
-      <PriceAndBuyButton />
-      {/* </WavyBackgroundDemo> */}
+      <Section className="p-4">
+        <PriceAndBuyButton />
+      </Section>
     </main>
   );
 }
