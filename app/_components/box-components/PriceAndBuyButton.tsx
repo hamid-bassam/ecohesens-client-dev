@@ -1,8 +1,8 @@
 "use client";
 import { Separator } from "@/components/ui/separator";
 import { useRecoilValue } from "recoil";
-import { Button } from "../../../src/components/ui/button";
 import { boxStateFinal } from "../../state/boxStateFinal";
+import { BuyButton } from "./BuyButton";
 
 export type PriceAndBuyButtonProps = {};
 
@@ -42,9 +42,9 @@ export const PriceAndBuyButton = (props: PriceAndBuyButtonProps) => {
       <Separator className="my-4" />
       <div className="flex justify-center w-full items-center ">
         <div className="flex  items-center gap-3">
-          <Button className="rounded-full h-14 px-14">
+          <BuyButton className="rounded-full h-14 px-14">
             Finaliser la commande
-          </Button>
+          </BuyButton>
         </div>
       </div>
     </div>

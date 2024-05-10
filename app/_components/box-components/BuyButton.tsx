@@ -2,12 +2,13 @@
 import { toast } from 'react-hot-toast';
 import { useRecoilValue } from 'recoil';
 import { Button } from "../../../src/components/ui/button";
+import { cn } from '../../../src/lib/utils';
 import { checkout } from "../../actions/checkout";
 import { boxStateFinal } from '../../state/boxStateFinal';
 
 
 export type BuyButtonProps = {
-
+  className?: string;
 };
 
 export const BuyButton = (props: BuyButtonProps) => {
@@ -35,8 +36,8 @@ export const BuyButton = (props: BuyButtonProps) => {
   }
 
   return (
-    <Button variant="default" onClick={checkoutUrlRedirection}  >
-      Buy
+    <Button variant="default" className={cn('rounded-full h-14 px-14', props.className)} onClick={checkoutUrlRedirection}  >
+      Finaliser la commande
     </Button>
   )
 };
