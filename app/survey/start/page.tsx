@@ -21,7 +21,7 @@ export default function SurveyStartPage() {
         <div className="container max-w-4xl bg-[#f1e1d5] p-8 pb-16 pt-9">
           <div className="content-container overflow-scroll p-6 pt-0">
             <iframe
-              data-tally-src="https://tally.so/embed/3ly5AB?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              data-tally-src="https://tally.so/embed/mBGjRK?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
               loading="lazy"
               width="100%"
               height="1000"
